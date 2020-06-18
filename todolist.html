@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+<title>
+To-Do List App
+</title>
+<script>
+function addItem() {
+var newItem = document.createElement("div");
+newItem.innerHTML = document.getElementById("box").value;
+newItem.onclick = removeItem
+document.getElementById("list").appendChild(newItem);
+saveList();
+}
+function removeItem() {
+document.getElementById("list").removeChild(this);
+saveList();
+}
+function saveList() {
+localStorage.storedList = document.getElementById("list").innerHTML;
+}
+function loadList() {
+document.getElementById("list").innerHTML = localStorage.storedList;
+for(var i = 0; i < list.children.length; i++) {
+list.children[i].onclick = removeItem;
+}
+}
+</script>
+</head>
+<body style=background-color:lightgreen>
+<h1>A To-Do List</h1>
+<a href="himbiewa.html">Click here to go back to himbiewa login!</a><br/>
+<input type="text" id="box" value=" "/>
+<br/>
+<input type="button" value="add item" onclick="addItem();"/>
+<br/>
+<div id="list"></div>
+<script>
+if(localStorage.storedList) {
+loadList();
+}
+</script>
+<div style=float:right; width:200 px;height:400 px>
+<h4>INSTRUCTIONS</h4>
+<p>type in the box what you want to add to the to do list.<br/> then click add item. <br/> if you want to delete an item, <br/> just click on it.</p>
+<img src="C:\Users\Ishaan\Desktop\Website\webthing.jpg">
+<p>by himbiewa inc.</p>
+</div>
+</body>
+</html>
